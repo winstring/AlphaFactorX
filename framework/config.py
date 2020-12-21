@@ -10,8 +10,8 @@ conf = {
     'valid_factors_file': '',
     'all_kfc_excess_file': '',
     'all_hf_excess_file': '',
-    'factor_script_dir': '',
-    'factor_value_dir': '',
-    'factor_excess_dir': '',
+    'factor_script_dir': 'factor_script',
+    'factor_value_dir': 'factor_values',
+    'factor_excess_dir': 'factor_excess',
     'default_result_csv': ''
 }

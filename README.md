@@ -6,7 +6,7 @@
 
 ### 1.1 All-in-one design
 
-Both close factors and minute factors can be developed and tested by inheriting the same base class now, but there's little to change in developing behavior for factor developers who used to work under old framework.
+Both close factors and minute factors can be developed and tested by inheriting the same base class now. While codes and folder trees have been greatly tailored, there's little to change in developing behavior for factor developers who used to work under old framework.
 
 ### 1.2 Boost development of close factors
 
@@ -81,12 +81,16 @@ Simply execute `python compute_and_check.py [factor_name_1] [factor_name_2] [fac
 
 Execute `python compute_and_check.py -f [path_to_text_file]`, this will generate a summary csv file containing factor specifications. Path to the csv file can be specified by adding a `-o` option, or it will try and write to a default location. Change the value of `default_result_csv` within `framework/config.py` to change the defaut csv path if necessary.
 
-#### 3.2.2 Other parameters
+#### 3.2.3 Other parameters
 
 - `-s`: start_date to compute factor, use `20180101` by default.
 - `-t`: transaction time of minute factors, inferred from the factor type by default, i.e. `KD: 0935, KH: 1000, KJ: 1300, KL: 1450`. To compute `KH_Demo` for a transaction time other than `1000`, e.g. `0955`, execute `python compute_and_check.py -i KH_Demo -t 0955`.
 
 For more configurable parameters, check contents in `framework/config.py` or run `python compute_and_check.py -h`.
+
+### 4. To do
+
+- Although not common, there are chances that about $\pm0.0002$ mismatch is observed between results from the new and the old frameworks. Anyway, the biases are quite limited...and it's not a comfortable experience to read the old codes, so...
 
 ## logs
 
