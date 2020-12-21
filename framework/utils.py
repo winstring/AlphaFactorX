@@ -8,16 +8,6 @@ from scipy import stats
 from framework.config import conf
 
 
-def ringwx(text, desp=''):
-    import requests
-    res = requests.post(
-        conf.get('serverchan_addr', ''),
-        data={'text': text, 'desp': desp}
-        )
-
-    return res.status_code
-
-
 def ttest_positive_sided(s, m):
     (t, p) = stats.ttest_1samp(s, m, nan_policy='omit')
     
