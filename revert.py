@@ -1,6 +1,6 @@
 #!/usr/local/anaconda3/bin/python
 ## Tool to revert factor modules to ones compatible to old factor development framework
-## 2020/12/28 by gqy
+## 2020/12/18 by gqy
 
 import sys
 import re
@@ -58,8 +58,8 @@ def revert(facname, from_path, to_path):
 
 if __name__ == '__main__':
     factor_names = sys.argv[1:]
-    from_path = "/home/gqy/facdev/factor_script/"
-    to_path = '/home/gqy/Factor_Factory/'
+    from_path = ''
+    to_path = ''
 
     if len(factor_names) == 0:
         print('Please provide at least one factor name!!!')

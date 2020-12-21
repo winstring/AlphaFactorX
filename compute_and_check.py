@@ -10,10 +10,8 @@ import sys
 prj_path = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, prj_path)
 
-from framework.utils import ringwx
 from framework.config import conf
 from framework.bench import FactorComputerChecker
-
 
 
 parser = argparse.ArgumentParser(description='Compute factor values and scores.')
@@ -58,7 +56,6 @@ if args.factor_file is not None:
         factor_list = [fac.strip() for fac in f]
     result = fcc.main_mp(factor_list)
     result.to_csv(os.path.abspath(args.result_csv))
-    _ = ringwx('Done computing factor values and scores (g).')
 
 if (len(args.factor_name)>0) or (len(args.i)>0):
     factor_names = list(set(args.factor_name).union(set(args.i)))
