@@ -1,5 +1,4 @@
     def set_param(self):
         params = {'prelength': 0, 'min_prelen': 0}
         return params
-
     
