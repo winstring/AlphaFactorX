@@ -1,6 +1,6 @@
 #!/usr/local/anaconda3/bin/python
 ## Tool to revert factor modules to ones compatible to old factor development framework
-## 2020/12/18 by gqy
+## 2020/12/28 by gqy
 
 import sys
 import re
@@ -14,7 +14,7 @@ def revert(facname, from_path, to_path):
     else:
         factype = facname.split('_')[0]
 
-    with open(f'{from_path}{facname}.py', 'r') as f:
+    with open(f'{from_path}factor_script/{facname}.py', 'r') as f:
         py = f.read()
     
     rpl = rf'import sys\nsys.path.insert(0, "{to_path}AlphaFramework/DataPreprocessor/")\n'
@@ -58,8 +58,8 @@ def revert(facname, from_path, to_path):
 
 if __name__ == '__main__':
     factor_names = sys.argv[1:]
-    from_path = ''
-    to_path = ''
+    from_path = '/home/gqy/facdev/'
+    to_path = '/home/gqy/Factor_Factory/'
 
     if len(factor_names) == 0:
         print('Please provide at least one factor name!!!')

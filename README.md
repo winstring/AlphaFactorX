@@ -64,12 +64,12 @@ For developer from old factor development framework, major differences between t
 - Corresponding `.json` file is not required any more, key parameters are now defined in function `set_param`.
 - Some redundant parameters are omitted. `type` and `def_arg` are now inferred from factor name and function parameters, respectively.
 - Parameters in function `minute_help` are also omitted, since it just acts as a wrapper of `minute` function.
-- Unused parameters in function `definition` or `minute` will be skipped automatically, so it's safe if parameters not identical between them. In the above example, parameters `MinuteHigh` and `MinuteLow` in `definition` will not be loaded and it won't cause any problem on dismatch of parameter appearance order.
+- Unused parameters in function `definition` or `minute` will be skipped automatically, so it's safe if parameters not identical between them. In the above example, parameters `MinuteHigh` and `MinuteLow` in `definition` are unnecessary, they will not be loaded and it won't cause any problem on dismatch of parameter appearance order.
 
 Conversion tools (You may want to backup certain files first since they will be overwriten without warning):
 
-- Use `convert.sh` to convert all old factor scripts under a folder to new ones in batch. Note that manual check and update of `prelength` and `min_prelen` values defined in `set_param` are still necessary.
-- Use `revert.py` to convert new factor script(s) to old ones, as well as their pairing `.json` files (only if certain information exists in comments of the new factor script, i.e. the line starts with `{"def_arg":` in the example).
+- Use `migration/convert.py` to convert old factor script(s) to new ones.
+- Use `migration/revert.py` to convert new factor script(s) to old ones, as well as their pairing `.json` files (only if certain information exists in comments of the new factor script, i.e. the line starts with `{"def_arg":` in the example). Parameters in function `definition` should be identical to the ones defined in function `minute` or the reverted script will run into error on the old framework.
 
 ### 3.2 Compute and check
 
