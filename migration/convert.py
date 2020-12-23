@@ -53,8 +53,8 @@ def convert(facname, from_path, to_path):
 
 if __name__ == '__main__':
     factor_names = sys.argv[1:]
-    from_path = '/home/gqy/Factor_Factory/'
-    to_path = '/home/gqy/facdev/'
+    from_path = 'path_to_old_framwork'
+    to_path = 'path_to_new_framework'
 
     if len(factor_names) == 0:
         print('Please provide at least one factor name!!!')
