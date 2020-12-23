@@ -6,11 +6,11 @@
 
 ### 1.1 All-in-one design
 
-Both close factors and minute factors can be developed and tested by inheriting the same base class now. While codes and folder trees have been greatly tailored, there's little to change in developing behavior for factor developers who used to work under old framework.
+Both close factors and minute factors can be developed and tested by inheriting the same base class now. While codes and folder trees have been heavily tailored, there's little to change in developing behavior for factor developers who used to work under old framework.
 
 ### 1.2 Boost development of close factors
 
-Now it's 10x faster when compute and check close factors than the one in use.
+Now it's 10x faster when compute and check close factors than the old one.
 
 ### 1.3 Flexible customizations
 
@@ -58,18 +58,18 @@ class KH_Demo(AlphaFactorX):
         return res
 ```
 
-For developer from old factor development framework, major differences between the new and old factor modules are:
+For developers who come from old factor development framework, major differences between the new and old factor modules are:
 
 - Module path insertion is replaced by a static import `from framework.core import AlphaFactorX`.
-- Corresponding `.json` file is not required any more, key parameters are now defined in function `set_param`.
+- Corresponding `.json` file is not required any more, key parameters are now defined in function `set_param` for convinience.
 - Some redundant parameters are omitted. `type` and `def_arg` are now inferred from factor name and function parameters, respectively.
 - Parameters in function `minute_help` are also omitted, since it just acts as a wrapper of `minute` function.
-- Unused parameters in function `definition` or `minute` will be skipped automatically, so it's safe if parameters not identical between them. In the above example, parameters `MinuteHigh` and `MinuteLow` in `definition` are unnecessary, they will not be loaded and it won't cause any problem on dismatch of parameter appearance order.
+- Corresponding data to parameters defined in function `definition` and `minute` will be loaded seperately and will be automatically skipped if unused, so it's safe if parameters within function `definition` and `minute` are not identical. In the example shown above, parameters `MinuteHigh` and `MinuteLow` in `definition` are unnecessary, certain data will not be loaded during computation, and it won't cause any problem on dismatch of appearance orders of the parameters.
 
 Conversion tools (You may want to backup certain files first since they will be overwriten without warning):
 
-- Use `migration/convert.py` to convert old factor script(s) to new ones.
-- Use `migration/revert.py` to convert new factor script(s) to old ones, as well as their pairing `.json` files (only if certain information exists in comments of the new factor script, i.e. the line starts with `{"def_arg":` in the example). Parameters in function `definition` should be identical to the ones defined in function `minute` or the reverted script will run into error on the old framework.
+- Use `migration/convert.py` to convert old factor script(s) to new ones. `from_path`(root of old framework) and `to_path` (root of the new framewrok) should be set first.
+- Use `migration/revert.py` to convert new factor script(s) to old ones, as well as their pairing `.json` files. Also, `from_path`(root of the new framework) and `to_path` (root of the old framewrok) should be set first. And since the new framework requires less parameters and variables than its predecessor, two manual adjustments are required to acquire a sucessful reversion. Firstly, the line starts with `{"def_arg":` as shown in the example is redundant for the new framework, but it's required when recover the old style `.json` file. Secondly, parameters in function `definition` and `minute` should be identical to the value of `def_arg` in the `.json` file.
 
 ### 3.2 Compute and check
 
