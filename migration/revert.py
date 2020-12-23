@@ -73,8 +73,8 @@ def revert(facname, from_path, to_path):
 
 if __name__ == '__main__':
     factor_names = sys.argv[1:]
-    from_path = '/home/gqy/facdev/'
-    to_path = '/home/gqy/Factor_Factory/'
+    from_path = 'path_to_the_new_framework'
+    to_path = 'path_to_the_old_framework'
 
     if len(factor_names) == 0:
         print('Please provide at least one factor name!!!')
