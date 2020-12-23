@@ -7,6 +7,14 @@ import re
 import json
 
 def convert(facname, from_path, to_path):
+    '''convert old factor script to the new version
+    Params:
+        facname: string, factor name
+        from_path: string, root path of the old framework
+        to_path: string, root path of the new framework
+    Returns:
+        new_py: string, converted script
+    '''
     hfs = ['KD', 'KH', 'KJ', 'KL']
     if not any([facname.startswith(i) for i in hfs]):
         factype = 'KFC'
@@ -40,7 +48,7 @@ def convert(facname, from_path, to_path):
     with open(f'{to_path}factor_script/{facname}.py', 'w') as f:
         f.write(new_py)    
 
-    return
+    return new_py
 
 
 if __name__ == '__main__':
@@ -53,5 +61,4 @@ if __name__ == '__main__':
         exit
 
     for factor_name in factor_names:
-        convert(factor_name, from_path, to_path)
-
+        _ = convert(factor_name, from_path, to_path)
