@@ -26,6 +26,10 @@ Clone this project into local workspace and keep the file structrue as it is.
 
 ## 3. Factor development
 
+### 3.0 Configuration (required)
+
+Configure `framework/config.py` as needed.
+
 ### 3.1 Write factor module
 
 Factor modules are hosted under folder `factor_script/`, an exemplary module file `factor_script/KH_Demo.py` looks like this:
@@ -68,8 +72,8 @@ For developers who come from old factor development framework, major differences
 
 Conversion tools (You may want to backup certain files first since they will be overwriten without warning):
 
-- Use `migration/convert.py` to convert old factor script(s) to new ones. `from_path`(root of old framework) and `to_path` (root of the new framewrok) should be set first.
-- Use `migration/revert.py` to convert new factor script(s) to old ones, as well as their pairing `.json` files. Also, `from_path`(root of the new framework) and `to_path` (root of the old framewrok) should be set first. And since the new framework requires less parameters and variables than its predecessor, two manual adjustments are required to acquire a sucessful reversion. Firstly, the line starts with `{"def_arg":` as shown in the example is redundant for the new framework, but it's required when recover the old style `.json` file. Secondly, parameters in function `definition` and `minute` should be identical to the value of `def_arg` in the `.json` file.
+- Use `migration/convert.py` to convert old factor script(s) to new ones. `from_path`(root of old framework) and `to_path` (root of the new framewrok) should be set by editing last block of the file first.
+- Use `migration/revert.py` to convert new factor script(s) to old ones, as well as their pairing `.json` files. Also, `from_path`(root of the new framework) and `to_path` (root of the old framewrok) should be set first. And since the new framework requires less parameters and variables than its predecessor, some additional info is required to acquire a sucessful reversion: all required data should defined in function `definition`. In the example above, `MinuteHigh` and `MinuteLow` defined in `definition` is redundant to the new framework, but it's required if someone want to revert to old version factor module.
 
 ### 3.2 Compute and check
 
@@ -94,6 +98,7 @@ For more configurable parameters, check contents in `framework/config.py` or run
 
 ## logs
 
+- 2020/12/22: update README
 - 2020/12/21: add config.py to simplify configuration
 - 2020/12/18: add convert.sh and revert.py for script migration
 - 2020/12/16: automatically skip unused data
