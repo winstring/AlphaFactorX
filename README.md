@@ -79,7 +79,7 @@ Conversion tools (You may want to backup certain files first since they will be 
 
 #### 3.2.1 By factor name(s)
 
-Simply execute `python compute_and_check.py [factor_name_1] [factor_name_2] [factor_name_3] ...` or `python compute_and_check.py -i [factor_name_1] [factor_name_2] [factor_name_3] ...`. Entering the directory where `compute_and_check.py` locates before running the commands is not a must, it can be refrenced and called wherever the current workding directory is.
+Simply execute `python compute_and_check.py [factor_name_1] [factor_name_2] [factor_name_3] ...` or `python compute_and_check.py -i [factor_name_1] [factor_name_2] [factor_name_3] ...`. Entering the directory where `compute_and_check.py` locates before running the commands is not a must, it can be refrenced and called wherever the current working directory is.
 
 #### 3.2.2 By text file containing factor names
 
