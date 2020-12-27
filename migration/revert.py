@@ -2,9 +2,10 @@
 ## Tool to revert factor modules to ones compatible to old factor development framework
 ## 2020/12/28 by gqy
 
-import sys
+import os
 import re
 import json
+import argparse
 
 
 def revert(facname, from_path, to_path):
@@ -72,13 +73,33 @@ def revert(facname, from_path, to_path):
 
 
 if __name__ == '__main__':
-    factor_names = sys.argv[1:]
-    from_path = 'path_to_the_new_framework'
-    to_path = 'path_to_the_old_framework'
+    parser = argparse.ArgumentParser(description='Revert factor(s) to old version.')
+    parser.add_argument(
+        '-from_dir', dest='from_dir', type=str, default='', help='from dir'
+    )
+    parser.add_argument(
+        '-to_dir', dest='to_dir', type=str, default='', help='to dir'
+    )
+    parser.add_argument(
+        '-f', dest='fac_file', type=str, default=None, help='file contains list of factors'
+    )
+    parser.add_argument(
+        'fac_name', nargs='*', default=None, help='factor name(s)'
+    )
+    args = parser.parse_args()
 
-    if len(factor_names) == 0:
+    fac_names = []
+    if args.fac_name is not None:
+        fac_names.extend(args.fac_name)
+
+    if args.fac_file is not None:
+        with open(os.path.abspath(args.fac_file), 'r') as f:
+            fac_names.extend([fac.strip() for fac in f])
+
+    if len(fac_names) < 1:
         print('Please provide at least one factor name!!!')
         exit
 
-    for factor_name in factor_names:
-        _, _ = revert(factor_name, from_path, to_path)
+    for factor_name in fac_names:
+        _, _ = revert(factor_name, args.from_dir, args.to_dir)
+
