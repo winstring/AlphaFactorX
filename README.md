@@ -1,6 +1,6 @@
 # AlphaFactorX
 
-> AlphaFactorX is a factor development framework focusing on simplicity, flexibility and maintainability.
+> AlphaFactorX is an alpha factor development framework focusing on simplicity, flexibility and maintainability.
 
 ## 1. Features
 
@@ -70,7 +70,7 @@ For developers who come from old factor development framework, major differences
 - Parameters in function `minute_help` are also omitted, since it just acts as a wrapper of `minute` function.
 - Corresponding data to parameters defined in function `definition` and `minute` will be loaded seperately and will be automatically skipped if unused, so it's safe if parameters within function `definition` and `minute` are not identical. In the example shown above, parameters `MinuteHigh` and `MinuteLow` in `definition` are unnecessary, certain data will not be loaded during computation, and it won't cause any problem on dismatch of appearance orders of the parameters.
 
-Conversion tools (You may want to backup certain files first since they will be overwriten without warning):
+Conversion tools (you may want to backup certain files first since they will be overwritten without warning):
 
 - Use `migration/convert.py` to convert old factor script(s) to new ones. `from_path`(root of old framework) and `to_path` (root of the new framewrok) should be set by editing last block of the file first.
 - Use `migration/revert.py` to convert new factor script(s) to old ones, as well as their pairing `.json` files. Also, `from_path`(root of the new framework) and `to_path` (root of the old framewrok) should be set first. And since the new framework requires less parameters and variables than its predecessor, some additional info is required to acquire a sucessful reversion: all required data should defined in function `definition`. In the example above, `MinuteHigh` and `MinuteLow` defined in `definition` is redundant to the new framework, but it's required if someone want to revert to old version factor module.
