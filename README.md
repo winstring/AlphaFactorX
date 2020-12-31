@@ -28,7 +28,17 @@ Clone this project into local workspace and keep the file structrue as it is.
 
 ### 3.0 Configuration (required)
 
-Configure `framework/config.py` as needed.
+Configure `framework/config.py` as needed:
+
+- `daily_data_path`: path to daily data, e.g. `close`, `open`, `high`, `low`, `volume`...
+- `minute_data_path`: path to minute data, e.g. `MinuteClose`, `MinuteOpen`, `MinuteHigh`, `MinuteLow`, `MinuteVolume`...
+- `valid_minute_path`: path to valid minutes
+- `valid_factors_file`: full location of valid factors file
+- `all_kfc_excess_file`, `all_hf_excess_file`: excess file of close factors and minute factors, respectively
+- `factor_script_dir`: dir to hold factor scripts
+- `factor_value_dir`: dir to hold factor value files
+- `factor_excess_dir`: dir to hold factor excess files 
+- `default_result_csv`:  default path to store `.csv` format result
 
 ### 3.1 Write factor module
 
