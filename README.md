@@ -22,7 +22,7 @@ Either a file containing lines of factor names or raw factor name(s) is supporte
 
 ## 2. Installation
 
-Clone this project into local workspace and keep the file structrue as it is.
+Clone or download this project into local workspace and keep the file structrue as it is.
 
 ## 3. Factor development
 
@@ -93,7 +93,7 @@ Simply execute `python compute_and_check.py [factor_name_1] [factor_name_2] [fac
 
 #### 3.2.2 By text file containing factor names
 
-Execute `python compute_and_check.py -f [path_to_text_file]`, this will generate a summary csv file containing factor specifications. Path to the csv file can be specified by adding a `-o` option, or it will try and write to a default location. Change the value of `default_result_csv` within `framework/config.py` to change the defaut csv path if necessary.
+Execute `python compute_and_check.py -f [path_to_text_file]`, this will calcualte the factors in parallel and generate a summary csv file containing factor specifications. Path to the csv file can be specified by adding a `-o` option, or it will try and write to a default location. Change the value of `default_result_csv` within `framework/config.py` to change the defaut csv path if necessary.
 
 #### 3.2.3 Other parameters
 
@@ -108,6 +108,7 @@ For more configurable parameters, check contents in `framework/config.py` or run
 
 ## logs
 
+- 2021/01/03: open to review
 - 2020/12/22: update README
 - 2020/12/21: add config.py to simplify configuration
 - 2020/12/18: add convert.sh and revert.py for script migration
