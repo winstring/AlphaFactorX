@@ -53,7 +53,7 @@ def convert(facname, from_path, to_path):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Convert factor(s) to old version.')
+    parser = argparse.ArgumentParser(description='Convert factor(s) to new version.')
     parser.add_argument(
         '-from_dir', dest='from_dir', type=str, default='', help='from dir'
     )
