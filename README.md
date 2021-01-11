@@ -104,7 +104,7 @@ For more configurable parameters, check contents in `framework/config.py` or run
 
 ### 4. To do
 
-- Although not common, there are chances that about ±0.0002 mismatch is observed between results from the new and the old frameworks. Anyway, the biases are quite limited...and it's not a comfortable experience to read the old codes, so...
+- Although not common, there are chances that about ±0.0002 mismatch is observed between results from the new and the old frameworks. Anyway, the biases are quite limited...and the old framework is a little complex, so...
 
 ## logs
 
