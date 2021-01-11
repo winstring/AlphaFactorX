@@ -111,7 +111,7 @@ For more configurable parameters, check contents in `framework/config.py` or run
 - 2021/01/03: open to review
 - 2020/12/22: update README
 - 2020/12/21: add config.py to simplify configuration
-- 2020/12/18: add convert.sh and revert.py for script migration
+- 2020/12/18: add convert.py and revert.py for script migration
 - 2020/12/16: automatically skip unused data
 - 2020/12/13: load daily data once instead of each day when it's in minute function
 - 2020/12/12: correct time mapping for minute factors and add altering transaction time support
