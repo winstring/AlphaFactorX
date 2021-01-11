@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# on 2020-12-11: rewrite of former factor framework, which is unmaintainable and slow.
+# on 2020-12-11: rewrite of former factor framework, which is bloated and slow.
 
 import os
 from datetime import datetime
